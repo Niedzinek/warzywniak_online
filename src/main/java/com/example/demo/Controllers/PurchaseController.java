@@ -21,22 +21,25 @@ public class PurchaseController {
     public PurchaseController(final PurchaseService purchaseService){
         this.purchaseService = purchaseService;}
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/purchase")
 //    @PreAuthorize("hasRole('client_customer')")
     ResponseEntity<?> createPurchase (@RequestBody PurchaseDTO purchaseToCreate){
         return ResponseEntity.ok(purchaseService.createPurchase(purchaseToCreate));
     }
 
-    @GetMapping(value = "/purchase")
-    ResponseEntity<List<Purchase>> readAllPurchases(){
-        return ResponseEntity.ok(purchaseService.findAllPurchases());
-    }
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    @GetMapping(value = "/purchase")
+//    ResponseEntity<List<Purchase>> readAllPurchases(){
+//        return ResponseEntity.ok(purchaseService.findAllPurchases());
+//    }
 
 //    @GetMapping(value = "/purchase/{username}")
 //    ResponseEntity<List<Purchase>> findPurchasesByCustomerUsername(@PathVariable String username){
 //        return ResponseEntity.ok(purchaseService.findPurchasesByLogin(username));
 //    }
 
+@CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/purchase/{userid}", method = RequestMethod.GET)
     public ResponseEntity<List<Purchase>> findPurchasesByCustomerUserId(@PathVariable String userid){
         return ResponseEntity.ok(purchaseService.findPurchasesByUserId(userid));

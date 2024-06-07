@@ -15,9 +15,9 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/customer")
-    Customer customerToCreate (@RequestBody Customer customerToCreate){
-        return customerService.createCustomer(customerToCreate);
-
-    }
+//    @PostMapping("/customer")
+//    Customer customerToCreate (@RequestBody Customer customerToCreate){
+//        return customerService.createCustomer(customerToCreate);
+//
+//    }
 }
